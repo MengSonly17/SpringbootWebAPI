@@ -18,9 +18,6 @@ WORKDIR /app
 # Copy the JAR from the build stage
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# Copy the .env file from the build stage
-COPY --from=build /app/.env .env
-
 # Expose port 8080
 EXPOSE 8080
 
