@@ -2,8 +2,8 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-# Copy everything, including the .env file
-COPY . . 
+# Copy everything from the current directory to /app in the container
+COPY . .
 
 # Make Gradle wrapper executable
 RUN chmod +x gradlew
@@ -15,13 +15,14 @@ RUN ./gradlew clean build -x test
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
-# Copy JAR and .env from build stage
+# Copy the JAR from the build stage
 COPY --from=build /app/build/libs/*.jar app.jar
+
+# Copy the .env file from the build stage
 COPY --from=build /app/.env .env
 
-# Expose port
+# Expose port 8080
 EXPOSE 8080
 
-# Run Spring Boot app
+# Run the Spring Boot app
 ENTRYPOINT ["java", "-jar", "app.jar"]
-
