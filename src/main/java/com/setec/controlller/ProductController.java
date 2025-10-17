@@ -1,12 +1,8 @@
 package com.setec.controlller;
- 
-import java.io.File;
+
+import java.io.File; 
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -37,7 +33,7 @@ import com.setec.repos.ProductRepo;
 @RequestMapping("/api/product")
 public class ProductController {
 
-    private final MyConfig myConfig;
+    private final MyConfig myConfig; 
 	
 	// http://localhost:9000/swagger-ui/index.html
 	// http://localhost:9000/api/product
