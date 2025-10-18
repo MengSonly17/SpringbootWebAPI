@@ -9,6 +9,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus; 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,8 @@ public class ProductController {
 	// http://localhost:9000/swagger-ui/index.html
 	// http://localhost:9000/api/product
 	
-	private static final boolean True = false;
+	private static final boolean True = false; 
+	
 	@Autowired
 	private ProductRepo productRepo;
 
